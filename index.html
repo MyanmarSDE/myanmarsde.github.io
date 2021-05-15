@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Myanmar SDE</title>
+    <style>
+        .heading {
+            margin: 20px;
+            color: #9B1B0C;
+        }
+
+        #container {
+            width: 100%;
+            display: inline-flexbox;
+            text-align: center;
+        }
+
+        #block {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h1>Click to choose theme color:</h1>
+        <h2>The color hex code is:</h2>
+        <h1 id="colorCode" style="color: #9B1B0C;">#9B1B0C</h1>
+        <input id="color-picker" onchange="changeColor()" style="height: 50px;width: 200px;" type="color"
+            value="#9B1B0C" />
+
+    </div>
+    <br />
+    <div id="container">
+        <div style="display: inline-flex;">
+            <h1 class="heading">HEADING1</h1>
+            <h1 class="heading">HEADING2</h1>
+            <h1 class="heading">HEADING3</h1>
+        </div>
+        <div id="block" style="width: 500px; height: 300px;background-color: #9B1B0C;"></div>
+    </div>
+    <script>
+        function changeColor() {
+            const pickedColor = document.getElementById("color-picker").value;
+            let headings = document.getElementsByClassName("heading");
+            for (let heading of headings) {
+                heading.style.color = pickedColor;
+            }
+            document.getElementById("block").style.backgroundColor = pickedColor;
+            document.getElementById("colorCode").style.color = pickedColor;
+            document.getElementById("colorCode").innerText = pickedColor;
+        }
+    </script>
+</body>
+
+</html>
